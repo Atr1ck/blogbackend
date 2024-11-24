@@ -18,7 +18,6 @@ export default function handler(req, res) {
   const { data: metadata, content } = matter(fileContent); // 解析元数据和正文
 
   res.status(200).json({
-    slug,
     metadata, // 返回元数据
     content,  // 返回正文
   });
