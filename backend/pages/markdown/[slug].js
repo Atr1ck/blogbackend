@@ -1,4 +1,6 @@
 import { useRouter } from "next/router";
+import fs from "fs";
+import path from "path";
 
 const baseUrl =
   process.env.NEXT_PUBLIC_API_BASE_URL || `https://${process.env.VERCEL_URL}`;
@@ -19,9 +21,6 @@ export default function MarkdownPage({ html, slug }) {
 }
 
 export async function getStaticPaths() {
-  const fs = require("fs");
-  const path = require("path");
-
   const markdownDir = path.join(process.cwd(), "markdowns");
   const filenames = fs.readdirSync(markdownDir);
   const paths = filenames.map((filename) => ({
