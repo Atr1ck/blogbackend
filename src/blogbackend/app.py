@@ -27,8 +27,6 @@ def list_articles():
 def get_article(filename):
     try:
         filepath = os.path.join(ARTICLES_FOLDER, filename)
-        if not os.path.exists(filepath) or not filename.endswith(".md"):
-            return jsonify({"error": "File not found"}), 404
         
         # 读取 Markdown 文件
         with open(filepath, "r", encoding="utf-8") as file:
