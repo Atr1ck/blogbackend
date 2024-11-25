@@ -14,12 +14,12 @@ def list_articles():
     try:
         files = os.listdir(ARTICLES_FOLDER)
         markdown_files = [f for f in files if f.endswith(".md")]
-        data = {}
+        data = []
         for filename in markdown_files:
             with open (os.path.join(ARTICLES_FOLDER, filename), "r", encoding="UTF-8") as file:
                 content = frontmatter.load(file)
-                data[filename] = content.metadata
-        return jsonify(["articles": data]), 200
+                data.append(content.metadata)
+        return jsonify({"articles": data}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
