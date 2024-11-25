@@ -19,7 +19,7 @@ def list_articles():
             with open (os.path.join(ARTICLES_FOLDER, filename), "r", encoding="UTF-8") as file:
                 content = frontmatter.load(file)
                 data[filename] = content.metadata
-        return jsonify({"articles": data}), 200
+        return jsonify(["articles": data]), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
