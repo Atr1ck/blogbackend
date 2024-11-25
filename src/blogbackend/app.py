@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import os
 import frontmatter
 from flask_cors import CORS
@@ -35,6 +35,9 @@ def get_article(filename):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/")
+def index():
+    return render_template("index.html")
 # 启动 Flask 应用
 if __name__ == "__main__":
     app.run(debug=True)
