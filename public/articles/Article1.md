@@ -1,5 +1,5 @@
 ---
-title: Article 1
+title: Article1
 date: 2024-11-25
 tags:
   - example
